@@ -1,0 +1,42 @@
+@import "variables";
+
+// 这里的1px是用border实现的
+// 当然,方式不止这一种,用 height + background 组合也是可以的
+// 而且,如果要封装上右下左四种border,仅仅用伪类是不够的,必须用background,现在是快速学习,不管那么多了
+@mixin border-bottom-1px($color: $border-color-3) {
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid $color;
+  }
+  @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+    &:after {
+      transform: scaleY(0.7);
+    }
+  }
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    &:after {
+      transform: scaleY(0.5);
+    }
+  }
+}
+
+@mixin border-bottom-none {
+  &:after {
+    display: none;
+  }
+}
+
+@mixin bg-image($url) {
+  background-image: url($url + "@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3) {
+    background-image: url($url + "@3x.png");
+  }
+}
+
+
