@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab">
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
@@ -19,6 +19,8 @@
 <script>
   import VHeader from '@/components/header/VHeader'
 
+  const ERR_OK = 0
+
   export default {
     name: 'App',
     data () {
@@ -28,6 +30,13 @@
     },
     components: {
       VHeader
+    },
+    created () {
+      this.axios.get('/api/seller').then((res) => {
+        if (res.data.errno === ERR_OK) {
+          this.seller = res.data.data
+        }
+      })
     }
 
   }
