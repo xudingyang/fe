@@ -31,22 +31,63 @@
     <div class="background">
       <img :src="seller.avatar">
     </div>
+    <transition name="fade">
+      <div class="detail" v-show="detailShow" @touchmove.prevent>
+        <div class="detail-wrapper">
+          <div class="detail-main">
+            <h1 class="name">{{seller.name}}</h1>
+            <div class="star-wrapper">
+              <v-star :score="seller.score" :size="48"></v-star>
+            </div>
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">优惠信息</div>
+              <div class="line"></div>
+            </div>
+            <ul v-if="seller.supports" class="supports">
+              <li class="support-item" v-for="(item,index) in seller.supports" :key="index">
+                <span class="icon" :class="iconClassMap[seller.supports[index].type]"></span>
+                <span class="text">{{seller.supports[index].description}}</span>
+              </li>
+            </ul>
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">商家公告</div>
+              <div class="line"></div>
+            </div>
+            <div class="bulletin">
+              <p class="content">{{seller.bulletin}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="detail-close" @click="hideDetail">
+          <i class="icon-close"></i>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
+  import Star from '../star/star.vue'
+
   export default {
     name: 'VHeader',
 
-    components: {},
-
-    data () {
-      return {}
+    components: {
+      'v-star': Star
     },
 
     props: {
       seller: {
         type: Object
+      }
+    },
+
+    data () {
+      return {
+        iconClassMap: [],
+        detailShow: false
       }
     },
 
@@ -57,7 +98,12 @@
     },
 
     methods: {
-      showDetail () {}
+      showDetail () {
+        this.detailShow = true
+      },
+      hideDetail () {
+        this.detailShow = false
+      }
     }
   }
 </script>
@@ -82,8 +128,8 @@
         }
       }
       .content {
-        vertical-align: top;
         display: inline-block;
+        vertical-align: top;
         margin-left: 12px;
         .title {
           margin: 2px 0 8px 0;
@@ -137,8 +183,8 @@
             }
           }
           .text {
-            font-size: 10px;
             line-height: 12px;
+            font-size: 10px;
           }
         }
       }
@@ -168,7 +214,7 @@
       padding: 0 22px 0 12px;
       height: 28px;
       font-weight: $fz_w;
-      color: #FFFFFF;
+      color: #fff;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -206,6 +252,116 @@
         width: 100%;
         height: auto;
       }
+    }
+    .detail {
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      background-color: rgba(7, 17, 27, 0.8);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      .detail-wrapper {
+        width: 100%;
+        flex: 1;
+        padding-bottom: 64px;
+        padding-top: 64px;
+        .detail-main {
+          .name {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 16px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 16px;
+          }
+          .star-wrapper {
+            text-align: center;
+            padding: 2px 0;
+          }
+          .title {
+            width: 80%;
+            display: flex;
+            margin: 28px auto 24px auto;
+            .line {
+              flex: 1;
+              position: relative;
+              top: -6px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .text {
+              font-size: 14px;
+              font-weight: 700;
+              padding: 0 12px;
+            }
+          }
+          .supports {
+            width: 80%;
+            margin: 0 auto;
+            .support-item {
+              padding: 0 12px;
+              margin-bottom: 12px;
+              font-size: 0;
+              color: #fff;
+              .icon {
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                margin-right: 6px;
+                background-size: 16px 16px;
+                background-repeat: no-repeat;
+                vertical-align: top;
+                &.decrease {
+                  @include bg-image('../../components/header/decrease_1');
+                }
+                &.discount {
+                  @include bg-image('../../components/header/discount_1');
+                }
+                &.guarantee {
+                  @include bg-image('../../components/header/guarantee_1');
+                }
+                &.invoice {
+                  @include bg-image('../../components/header/invoice_1');
+                }
+                &.special {
+                  @include bg-image('../../components/header/special_1');
+                }
+              }
+              .text {
+                font-size: 12px;
+                line-height: 16px;
+                font-weight: $fz_w;
+                color: #fff;
+              }
+            }
+          }
+          .bulletin {
+            width: 80%;
+            margin: 0 auto;
+            .content {
+              padding: 0 12px;
+              line-height: 24px;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+      .detail-close {
+        width: 32px;
+        height: 32px;
+        margin: -64px auto 0 auto;
+        font-size: 12px;
+      }
+    }
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s
+    }
+    .fade-enter, .fade-leave-active {
+      opacity: 0
     }
   }
 </style>
