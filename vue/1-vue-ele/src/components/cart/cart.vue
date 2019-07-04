@@ -94,14 +94,8 @@
       },
       selectFoods: {
         type: Array,
-        default () {
-          return [
-            {
-              price: 30,
-              count: 1
-            }
-          ]
-        }
+        // 对象或数组默认值必须从一个工厂函数获取
+        default: () => []
       }
     },
     computed: {
@@ -188,8 +182,10 @@
         }
       },
       dropping (el, done) {
-        // 这里是触发浏览器重绘。那本书上讲了，访问offsetHeight等属性的时候，都会重新刷新浏览器
-        // let rf = el.offsetHeight
+        // 这句是触发浏览器重绘。访问offsetHeight等属性的时候，都会重新刷新浏览器
+        /* eslint-disable no-unused-vars */
+        let rf = el.offsetHeight
+        // 重绘之后,动画设置才有效
         this.$nextTick(() => {
           el.style.webkitTransform = 'translate3d(0,0,0)'
           el.style.transform = 'translate3d(0,0,0)'
