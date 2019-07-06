@@ -228,7 +228,7 @@
           display: table-cell;
           width: 56px;
           vertical-align: middle;
-          /*.border-w(0, 0, 1px, 0);*/
+          @include border-1px(0, 0, 1px, 0);
           border-style: solid;
           border-color: rgba(7, 17, 27, 0.1);
           font-size: 12px;
@@ -289,7 +289,7 @@
         margin: 18px;
         padding-bottom: 18px;
         border: 0 solid rgba(7, 17, 27, 0.1);
-        /*.border-w(0, 0, 1px, 0);*/
+        @include border-1px(0, 0, 1px, 0);
         &:last-child {
           margin-bottom: 0;
           border: none;

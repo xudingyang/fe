@@ -51,8 +51,8 @@
       display: flex;
       height: 40px;
       line-height: 40px;
-      @include border-bottom-1px($border-color-3);
-
+      box-sizing: border-box;
+      @include border-1px(0, 0, 1px, 0);
       .tab-item {
         flex: 1;
         text-align: center;

@@ -414,7 +414,7 @@
           position: relative;
           padding: 12px 0;
           border-bottom: 0px solid rgba(7, 17, 27, 0.1);
-          /*.border-w(0, 0, 1px, 0);*/
+          @include border-1px(0, 0, 1px, 0);
           .name {
             font-size: 14px;
             line-height: 24px;

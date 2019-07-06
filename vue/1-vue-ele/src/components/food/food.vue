@@ -200,7 +200,7 @@
       margin-bottom: 18px;
       background-color: #fff;
       border-bottom: 0 solid rgba(7, 17, 27, 0.1);
-      /*.border-w(0, 0, 1px, 0);*/
+      @include border-1px(0, 0, 1px, 0);
       .name {
         font-size: 14px;
         font-weight: 700;
@@ -281,7 +281,7 @@
       margin-bottom: 18px;
       background-color: #fff;
       border: 0 solid rgba(7, 17, 27, 0.1);
-      /*.border-w(1px, 0, 1px, 0);*/
+      @include border-1px(1px, 0, 1px, 0);
       .title {
         line-height: 14px;
         margin-bottom: 6px;
@@ -316,7 +316,7 @@
         position: relative;
         padding: 16px 0;
         border-bottom: 0 solid rgba(7, 17, 27, 0.1);
-        /*.border-w(0, 0, 1px, 0);*/
+        @include border-1px(0, 0, 1px, 0);
         .user {
           position: absolute;
           right: 0;

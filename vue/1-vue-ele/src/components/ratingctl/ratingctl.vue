@@ -85,7 +85,7 @@
     padding: 18px 0;
     margin: 0 18px;
     border-bottom: 0 solid rgba(7, 17, 27, 0.1);
-    /*.border-w(0, 0, 1px, 0);*/
+    @include border-1px(0, 0, 1px, 0);
     font-size: 0px;
 
     .rt {

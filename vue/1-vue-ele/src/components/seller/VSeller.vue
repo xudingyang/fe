@@ -166,13 +166,11 @@
     padding: 18px;
     margin-bottom: 18px;
     background-color: #fff;
-    border-bottom: 0 solid rgba(7, 17, 27, .1);
-    @include border-bottom-1px();
+    @include border-1px(0, 0, 1px, 0, rgba(7, 17, 27, 0.1));
 
     .desc {
       padding-bottom: 18px;
-      border-bottom: 0 solid rgba(7, 17, 27, .1);
-      @include border-bottom-1px();
+      @include border-1px(0, 0, 1px, 0, rgba(7, 17, 27, 0.1));
 
       .name {
         font-size: 14px;
@@ -213,8 +211,8 @@
 
       .delivery-item {
         flex: 1;
-        border-right: 0 solid rgba(7, 17, 27, .1);
-        /*.border-w(0, 1px, 0, 0);*/
+        @include border-1px(0, 1px, 0, 0, rgba(7, 17, 27, 0.1));
+
         text-align: center;
 
         &:last-child {
@@ -270,8 +268,7 @@
 
   .bulletin {
     background-color: #fff;
-    border: 0 solid rgba(7, 17, 27, .1);
-    /*.border-w(1px, 0, 1px, 0);*/
+    @include border-1px(1px, 0, 1px, 0, rgba(7, 17, 27, 0.1));
     .title {
       padding: 18px 18px 0 18px;
       font-size: 14px;
@@ -292,8 +289,7 @@
 
       .support-item {
         padding: 16px 12px;
-        border: 0 solid rgba(7, 17, 27, .1);
-        /*.border-w(1px, 0, 0, 0);*/
+        @include border-1px(1px, 0, 0, 0, rgba(7, 17, 27, 0.1));
         font-size: 0;
 
         .icon {
@@ -339,8 +335,7 @@
     margin-top: 16px;
     padding: 18px;
     background-color: #fff;
-    border: 0 solid rgba(7, 17, 27, .1);
-    /*.border-w(1px, 0, 1px, 0);*/
+    @include border-1px(1px, 0, 1px, 0);
     .title {
       margin-bottom: 12px;
       line-height: 14px;
@@ -375,13 +370,11 @@
     color: rgb(7, 17, 27);
     background-color: #fff;
     margin-top: 16px;
-    border: 0 solid rgba(7, 17, 27, 0.1);
-    /*.border-w(1px, 0, 0, 0);*/
+    @include border-1px(1px, 0, 0, 0, rgba(7, 17, 27, 0.1));
     .title {
       padding-bottom: 12px;
       line-height: 14px;
-      border-bottom: 0 solid rgba(7, 17, 27, 0.1);
-      @include border-bottom-1px();
+      @include border-1px(0, 0, 1px, 0, rgba(7, 17, 27, 0.1));
       font-size: 14px;
     }
 
@@ -389,8 +382,7 @@
       padding: 16px 12px;
       line-height: 16px;
       font-size: 12px;
-      border-bottom: 0 solid rgba(7, 17, 27, 0.1);
-      @include border-bottom-1px();
+      @include border-1px(0, 0, 1px, 0, rgba(7, 17, 27, 0.1));
 
       &:last-child {
         border: none;

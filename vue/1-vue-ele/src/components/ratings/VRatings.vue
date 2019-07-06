@@ -150,8 +150,7 @@
     display: flex;
     padding: 18px 0;
     border-bottom: 0 solid rgba(7, 17, 27, 0.1);
-    /*.border-w(0, 0, 1px, 0);*/
-    @include border-bottom-1px();
+    @include border-1px(0, 0, 1px, 0);
     margin-bottom: 18px;
   }
 
@@ -247,8 +246,7 @@
     display: flex;
     padding: 18px 0;
     border-bottom: 0 solid rgba(7, 17, 27, .1);
-    /*.border-w(0, 0, 1px, 0);*/
-    @include border-bottom-1px();
+    @include border-1px(0, 0, 1px, 0);
 
     .avatar {
       flex: 0 0 28px;
@@ -322,8 +320,7 @@
         margin-right: 8px;
         padding: 0 6px;
         border: 0 solid rgba(7, 17, 27, .1);
-        /*.border-w(1px, 1px, 1px, 1px);*/
-        @include border-bottom-1px();
+        @include border-1px(1px, 1px, 1px, 1px);
         border-radius: 1px;
         color: rgb(147, 153, 159);
       }
