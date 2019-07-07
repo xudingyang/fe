@@ -1,3 +1,6 @@
 @import "./reset.scss";
 @import "./base.scss";
 @import "./icon.scss";
+
+// 在main.js里全局引入index.scss后,就可以使用了
+// 可以发现,这里并没有引入mixin和variable,因为它们不是css,只是变量和mixin,或者说只是占位符,只有在使用的时候才能确定编译成最终的css代码,引入也了没用,必须在使用的组件里引入
