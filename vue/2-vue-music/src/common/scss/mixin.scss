@@ -1,0 +1,80 @@
+@import "variable";
+
+@mixin bg-image-png($url) {
+  background-image: url($url + "@2x.png");
+  @media screen and (-webkit-min-device-pixel-ratio: 3) , (min-device-pixel-ratio: 3) {
+    background-image: url($url + "@3x.png");
+  }
+}
+
+@mixin bg-image-jpg($url) {
+  background-image: url($url + "@2x.jpg");
+  @media screen and (-webkit-min-device-pixel-ratio: 3) , (min-device-pixel-ratio: 3) {
+    background-image: url($url + "@3x.jpg");
+  }
+}
+
+@mixin no-wrap() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// 扩展小图标点击区域
+@mixin extend-click() {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
+
+// 1px边框
+@mixin border-1px($top-bd-w, $right-bd-w, $bottom-bd-w, $left-bd-w, $color: $border-color-3) {
+  border-color: $color;
+  border-style: solid;
+  @if($top-bd-w > 0) {
+    border-top-width: $top-bd-w;
+  }
+  @if($right-bd-w > 0) {
+    border-right-width: $right-bd-w;
+  }
+  @if($bottom-bd-w > 0) {
+    border-bottom-width: $bottom-bd-w;
+  }
+  @if($left-bd-w > 0) {
+    border-left-width: $left-bd-w;
+  }
+  @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+    @if($top-bd-w > 0) {
+      border-top-width: $top-bd-w * 0.7;
+    }
+    @if($right-bd-w > 0) {
+      border-right-width: $right-bd-w * 0.7;
+    }
+    @if($bottom-bd-w > 0) {
+      border-bottom-width: $bottom-bd-w * 0.7;
+    }
+    @if($left-bd-w > 0) {
+      border-left-width: $left-bd-w * 0.7;
+    }
+  }
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    @if($top-bd-w > 0) {
+      border-top-width: $top-bd-w * 0.5;
+    }
+    @if($right-bd-w > 0) {
+      border-right-width: $right-bd-w * 0.5;
+    }
+    @if($bottom-bd-w > 0) {
+      border-bottom-width: $bottom-bd-w * 0.5;
+    }
+    @if($left-bd-w > 0) {
+      border-left-width: $left-bd-w * 0.5;
+    }
+  }
+}
