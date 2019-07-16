@@ -13,7 +13,9 @@ export default new Router({
     {
       path: '/',
       name: 'Root',
-      component: Recommend
+      // component: Recommend
+      // 这里不要用component,因为根路由本就不属于任何组件,重定向更合适
+      redirect: '/recommend' // 重定向到 '/recommend' 路由
     },
     {
       path: '/recommend',
