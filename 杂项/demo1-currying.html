@@ -30,10 +30,14 @@
 
   var cost = currying(foo)
 
-  cost(500)
-  cost(300)
+  // cost(300)
+  // cost(600)
+  // cost(22)
 
-  console.log(cost())
+  // cost(300)(600)(22)
+
+  // console.log(cost())
+  console.log(cost(300)(600)(22)())
 
 </script>
 </body>
